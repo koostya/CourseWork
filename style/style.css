@@ -1,0 +1,564 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face{
+	font-family: rust;
+	src: url(../fonts/rust/IntroRustG-Base2Line.otf);
+}
+
+body{
+	position: relative;
+}
+.wrap__header{
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	background: url(../img/main2.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	transition: all .8s;
+}
+.staff__wrap{
+	height: auto;
+}
+.wrap__header__staff{
+	background: none;
+	height: auto;
+}
+.wrapper__staff{
+	position: relative;
+}
+.wrap__header__text{
+	font-family: rust;
+	font-size: 70px;
+	text-transform: uppercase;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: rgba(224, 255, 255, .9);
+	transform: translate(-50%, -50%);
+}
+.mouse{
+	width: 25px;
+	height: 40px;
+	border: 1px solid white;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translate(-50%,0);
+	transition: all .3s;
+}
+.mouse > span{
+	width: 2px;
+	height: 8px;
+	background-color: white;
+	position: absolute;
+	top: 2px;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+.mouse:hover{
+	bottom: 15px;
+	cursor: pointer;
+}
+.header__menu{
+	float: right;
+	right: 100px;
+	top: 20px;
+	position: fixed;
+	z-index: 4;
+}
+.menu__item{
+	display: inline-block;
+	position: relative;
+	font-family: rust;
+	margin-left: 10px;
+	color: black;
+	transition: all .5s;
+}
+.menu__item > a{
+	text-decoration: none;
+	color: black;
+	transition: all .5s;
+}
+.menu__item > span{
+	width: 0%;
+	height: 2px;
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	background-color: rgb(32, 178, 170);
+	transition: all .5s;
+}
+.menu__item:hover{
+	cursor: pointer;
+}
+.menu__item:hover > a{
+	color: rgb(32, 178, 170);
+}
+.menu__item:hover > span{
+	width: 100%;
+}
+.wrap__header__black-back{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+}
+.content{
+	width: 100%;
+	color: rgba(224, 255, 255, .9);
+}
+
+.form{
+	width: 258px;
+	position: relative;
+	margin: 40px auto;
+}
+.input{
+	border: none;
+	border-bottom: 2px solid black;
+	padding: 5px 20px 5px 20px;
+	font-family: sans-serif;
+	font-size: 24px;
+}
+.input:focus{
+	outline: none;
+}
+.addBut{
+	position: relative;
+	display: block;
+	margin: 10px auto;
+	width: 50px;
+	height: 20px;
+	border: none;
+	font-family: sans-serif;
+}
+
+.museums__wrap{
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 40px;
+	display: block;
+	position: relative;
+	clear: both;
+}
+.museums__number{
+	position: absolute;
+	top: 10px;
+	right: 0;
+	font-family: rust;
+	font-size: 20px;
+	color: #015965;
+}
+.image__wrap{
+	width: 200px;
+	height: 200px;
+	box-shadow: 0 7px 15px rgba(0,0,0,.8);
+	position: relative;
+	float: left;
+	display: block;
+}
+.image__img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.museum__aside{
+	padding-left: 230px;
+}
+.museum__name{
+	font-size: 30px;
+	font-family: rust;
+	text-align: center;
+	color: black;
+}
+.museum__description{
+	font-family: rust;
+	font-size: 15px;
+	text-align: justify;
+	padding-top: 40px;
+	color: black;
+}
+.museum__buttons{
+	float: right;
+	padding-top: 30px;
+}
+.musbut{
+	display: inline-block;
+	border-radius: 10px;
+	box-shadow: 0 3px 13px rgba(0,0,0,.5);
+	color: black;
+	font-family: rust;
+	padding: 5px 10px 5px 10px;
+	text-decoration: none;
+}
+.buttons__delete{
+	background-color: red;
+}
+.buttons__change{
+	background-color: green;
+}
+.musbut:hover{
+	cursor: pointer;
+}
+
+
+/*********************************MODAL*/
+
+.modal__add-museum{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.6);
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 10;
+}
+.modal__add-museum2{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.6);
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 10;
+}
+.add-museum__inner{
+	position: absolute;
+	background-color: white;
+	width: 400px;
+	height: 500px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
+
+}
+
+.add-museum__inner__name{
+	font-family: rust;
+	font-size: 22px;
+	color: black;
+	text-align: center;
+	padding: 30px 0 20px 0;
+}
+
+.form__mus-name__txt,
+.form__mus-descr__txt{
+	font-family: rust;
+	text-align: center;
+	font-size: 20px;
+	color: rgb(32, 178, 170);
+}
+
+#input__museum__name{
+	display: block;
+	margin: 0 auto;
+	border: none;
+	width: 300px;
+	background-color: transparent;
+	border-bottom: 2px solid rgb(32, 178, 170);
+	padding: 0 0 3px 0;
+	text-align: center; 
+	font-family: rust;
+	font-size: 15px;
+	color: black;
+}
+#input__museum__name2{
+	display: block;
+	margin: 0 auto;
+	border: none;
+	width: 300px;
+	background-color: transparent;
+	border-bottom: 2px solid rgb(32, 178, 170);
+	padding: 0 0 3px 0;
+	text-align: center; 
+	font-family: rust;
+	font-size: 15px;
+	color: black;
+}
+.mus-name:focus{
+	outline: none;
+}
+.form__mus-descr__txt{
+	padding: 30px 0 20px 0;
+}
+.mus-descr{
+	width: 300px;
+	display: block;
+	margin: 0 auto;
+	border: 2px solid rgb(32, 178, 170);
+	min-height: 100px;
+	max-width: 300px;
+	max-height: 180px;
+	padding: 10px;
+	font-family: rust;
+	font-size: 15px;
+	color: black;
+}
+.addMuseum__but{
+	font-family: rust;
+	font-size: 30px;
+	text-align: center;
+	background-color: rgb(32, 178, 170);
+	color: black;
+	padding: 5px 20px 5px 20px;
+	border: none;
+	border-radius: 20px;
+	display: block;
+	margin: 10px auto;
+}
+.addMuseum__but:hover{
+	cursor: pointer;
+}
+.addMuseum__but:focus{
+	outline: none;
+}
+.add-mus_button{
+	font-family: rust;
+	font-size: 30px;
+	text-align: center;
+	background-color: rgb(32, 178, 170);
+	color: black;
+	padding: 5px 20px 5px 20px;
+	border: none;
+	border-radius: 20px;
+	display: block;
+	width: 200px;
+	margin: 100px auto;
+	box-shadow: 0 3px 10px rgba(0,0,0,.6);
+}
+.add-mus_button:hover{
+	cursor: pointer;
+}
+.close__modal{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+}
+.close__modal > .line{
+	position: absolute;
+	width: 15px;
+	height: 2px;
+	background-color: rgba(0,0,0,.5);
+	transition: all .3s;
+	top: 50%;
+	left: 20%;
+	
+}
+.close__modal > .line:nth-child(1){
+	transform: rotate(45deg);
+}
+.close__modal > .line:nth-child(2){
+	transform: rotate(-45deg);
+}
+.close__modal:hover{
+	cursor: pointer;
+}
+.close__modal:hover .line{
+	background-color: rgba(0,0,0,1);
+	transform: rotate(180deg);
+}
+.input-field{
+	width: 300px;
+	margin: 10px auto;
+}
+
+.search__mus_name{
+	margin-top: 30px; 
+	display: inline-block;
+}
+.validate{
+	color: black;
+	font-family: rust;
+	padding-left: 20px;
+	text-align: center;
+}
+.search__mus_name > label{
+	font-family: rust;
+}
+.order_by_mus_name{
+	display: inline-block;
+	z-index: 1;
+}
+.wrap__search{
+	width: 578px;
+	margin: 0 auto;
+}
+.wrap__museums__all{
+	display: block;
+}
+.wrap__museums__ordered{
+	display: none;
+}
+.checkbox__mus_filter{
+	display: inline-block;
+	padding-right: 20px;
+}
+
+.staff__wrap{
+	width: 100%;
+	margin-top: 100px;
+	border-radius: 10px;
+}
+.staff__title{
+	font-family: rust;
+	font-size: 20px;
+	color: black;
+	text-align: center;
+}
+.staff__table{
+	width: 100%;
+	margin: 0 auto;
+	font-family: rust;
+	color: #043C6B;
+}
+.staff__table >tbody> tr:nth-child(2n){
+	background-color: white;
+}
+.staff__table >tbody> tr:nth-child(2n+1){
+	background-color: #ccc;
+}
+.staff__table >tbody> tr:nth-child(1) > td{
+	text-align: center;
+	font-family: rust;
+}
+#delAddStaffBut__wrap{
+	background-color: rgba(0,0,0,.1);
+}
+.addStaff__but{
+	text-align: center;
+	background-color: green;
+}
+.addStaff__but:hover{
+	cursor: pointer;
+}
+.deleteStaff__but{
+	text-align: center;
+	background-color: red;
+}
+.modal__add-staff{
+	display: none;
+}
+.add-staff__inner{
+	width: 800px;
+	height: auto;
+}
+.add-staff__form{
+	width: 610px;
+	margin: 0 auto;
+}
+.form__staff-name__txt{
+	text-align: center;
+}
+#input__museum__staff{
+	margin-left: 0;
+	display: block;
+    border: none;
+    width: 200px;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(32, 178, 170);
+    padding: 0 0 3px 0;
+    text-align: center;
+    font-family: rust;
+    font-size: 15px;
+    color: black;	
+}
+.name__wrap{
+	width: 200px;
+	display: inline-block;
+}
+#form__last__div{
+	clear: both;
+	margin: 0 auto;
+}
+
+/*STAFF*/
+
+.staff__pay{
+	text-align: center;
+}
+.staff__wrapper{
+	width: 962px;
+	margin: 100px auto;
+}
+.selection{
+	width: 200px;
+}
+.staff__but__wrap{
+	width: 310px;
+	margin: -40px auto;
+}
+.staff__but__add,
+.staff__but__print{
+	width: 150px;
+	padding: 10px 30px 10px 30px;
+	border-radius: 20px;
+	background-color: #00C322;
+	font-family: rust;
+	text-align: center;
+	display: inline-block;
+	transition: all .3s;
+	box-shadow: 0 5px 10px rgba(0,0,0,.6); 
+}
+#staff__but__print{
+	background-color: #8B003F;
+	display: block;
+	margin: 20px auto;
+}
+.staff__but__delete{
+	width: 150px;
+	padding: 10px 30px 10px 30px;
+	border-radius: 20px;
+	background-color: #FD0006;
+	font-family: rust;
+	text-align: center;
+	display: inline-block;
+	transition: all .3s;
+	box-shadow: 0 5px 10px rgba(0,0,0,.6); 
+}
+.staff__but__add:hover{
+	cursor: pointer;
+	box-shadow: 0 1px 10px rgba(0,0,0,.6);
+}
+.staff__but__delete:hover{
+	cursor: pointer;
+	box-shadow: 0 1px 10px rgba(0,0,0,.6);
+}
+.staff__but__print:hover{
+	cursor: pointer;
+	box-shadow: 0 1px 10px rgba(0,0,0,.6);
+}
+.modal__update-staff{
+	display: none;
+}
+#modal__update-staff{
+	display: none;
+}
+.chart__staff__wrap{
+	width: 400px;
+	height: 300px;
+}
+.recommended__title{
+	text-align: center;
+	font-family: rust;
+	font-size: 23px;
+	color: #FF5C00;
+}
+.museum__wrap__number{
+	font-family: rust;
+	color: #A64500;
+	padding: 20px 40px 30px 0; 
+	display: inline-block;
+}
